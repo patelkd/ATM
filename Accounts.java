@@ -41,6 +41,7 @@ public class Accounts {
 			System.out.println("Your new entered name is " + this.name);
 	}
 
+
 	//getters
 	public String name() {
 		return name;
@@ -84,6 +85,9 @@ public class Accounts {
 	}
 
 	//getter
+	public void process() {
+
+	}
 	
 
 
@@ -96,22 +100,31 @@ public class Accounts {
 
 		Scanner reader = new Scanner (System.in);
 
-		String str1 = "Enter your pin ";
+		String str1 = "Enter your name ";
 		System.out.println(str1);
+		String yourName = reader.next();
+		String str2 = "Enter your pin: ";
+		System.out.println(str2);
 		String yourPin = reader.next();
 
+
 		Accounts yourAccount = new Accounts("Tom", "9999", 3200.00);
-		if (yourPin.equals("7814")) {
+		if (yourName.equals("Bob") && yourPin.equals("7814")) {
 			yourAccount = account1;
-		} else if (yourPin.equals("4024")) {
+		} else if (yourName.equals("Amy") && yourPin.equals("4024")) {
 			yourAccount=account2;
-		} else if (yourPin.equals("0000")) {
+		} else if (yourName.equals("Sean") && yourPin.equals("0000")) {
 			yourAccount=account3;
+		} else {
+			System.out.println("Invalid name or pin.");
+
 		}
-
-
-		String str2 = "Enter 1 to check your balance; 2 to withdraw; 3 to change name; and 4 to change pin: ";
-		System.out.println(str2);
+		
+		if (yourAccount==account1 || yourAccount==account2 || yourAccount==account3) {	
+		
+	
+		String str3 = "Enter 1 to check your balance; 2 to withdraw; 3 to change name; 4 to change pin; and 5 to log out: ";
+		System.out.println(str3);
 		int yourSelection = reader.nextInt();
 
 		if (yourSelection==1) {
@@ -127,7 +140,13 @@ public class Accounts {
 			yourAccount.setPin(newPin);
 			yourAccount.checkPin();
 
+		} else if (yourSelection==5) {
+			System.out.println("Your account has been logged out.");
+			System.out.println(str1);
 		}
-
+		}
 	} 
 }
+
+
+
